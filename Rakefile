@@ -10,6 +10,12 @@ task :install do |t|
   dot_vim = File.join PWD, '.vim'
   vimrc = File.join PWD, '.vimrc'
 
+  if File.exists?(dot_vim_target) or File.exists?(vimrc_target)
+    puts "#{dot_vim_target} or #{vimrc_target} already exist. 
+    Please remove these files before installing."
+    exit 1
+  end
+
   puts "Linking files..."
   %x(ln -s #{dot_vim} #{dot_vim_target})
   %x(ln -s #{vimrc} #{vimrc_target})
