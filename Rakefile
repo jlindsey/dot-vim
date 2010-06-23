@@ -1,12 +1,8 @@
-desc "Installs the .vim and .vimrc files"
-task :install do |t|
-  PWD = ENV['PWD']
-  puts "Where to install? [#{ENV['HOME']}]"
-  root = $stdin.gets.chomp 
-  root = root.empty? ? ENV['HOME'] : root
+PWD = ENV['PWD']
 
-  dot_vim_target = File.join root, '.vim'
-  vimrc_target = File.join root, '.vimrc'
+def install_in path
+  dot_vim_target = File.join path, '.vim'
+  vimrc_target = File.join path, '.vimrc'
   dot_vim = File.join PWD, '.vim'
   vimrc = File.join PWD, '.vimrc'
 
@@ -19,6 +15,22 @@ task :install do |t|
   puts "Linking files..."
   %x(ln -s #{dot_vim} #{dot_vim_target})
   %x(ln -s #{vimrc} #{vimrc_target})
+end
+
+desc "Installs the .vim and .vimrc files"
+task :install do
+  puts "Where to install? [#{ENV['HOME']}]"
+  root = $stdin.gets.chomp 
+  root = root.empty? ? ENV['HOME'] : root
+
+  install_in root
+end
+
+namespace :install do
+  desc "Installs using the default paths, with no user input"
+  task :no_user_input do
+    install_in ENV['HOME']
+  end
 end
 
 task :default => :install
