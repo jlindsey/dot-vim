@@ -13,6 +13,9 @@ au BufNewFile,BufRead [rR]antfile,*.rant		set filetype=ruby
 " Vagrant
 au BufNewFile,BufRead Vagrantfile       set filetype=ruby
 
+" Bundler
+au BufNewFile,BufRead Gemfile           set filetype=ruby
+
 " eRuby
 au BufNewFile,BufRead *.erb,*.rhtml			set filetype=eruby
 
