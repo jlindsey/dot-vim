@@ -30,7 +30,7 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 colorscheme ir_black 
 
 " Code folding
-set foldmethod=manual
+set foldmethod=marker
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
 
