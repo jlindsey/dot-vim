@@ -16,18 +16,12 @@ colorscheme solarized
 
 " Code folding
 set foldmethod=marker
-" au BufWinLeave * mkview
-" au BufWinEnter * silent loadview
 
 " Formatting (some of these are for coding in C and C++)
 set ts=2  " Tabs are 2 spaces
 set bs=2  " Backspace over everything in insert mode
 set shiftwidth=2  " Tabs under smart indent
-set nocp incsearch
-set cinoptions=:0,p0,t0
-set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
-set cindent
 set autoindent
 set smarttab
 set expandtab
@@ -40,10 +34,6 @@ set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
  
-" gvim specific
-set mousehide  " Hide mouse after chars typed
-set mouse=a  " Mouse in all modes
-
 " Backups & Files
 set backup                     " Enable creation of backup file.
 set backupdir=~/.vim/backups " Where backups will go.
