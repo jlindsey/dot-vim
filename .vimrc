@@ -11,8 +11,7 @@ set ruler  " Ruler on
 set nu  " Line numbers on
 set nowrap  " Line wrapping off
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
-set background=dark
-colorscheme solarized
+colorscheme ir_black
 
 " Code folding
 set foldmethod=marker
